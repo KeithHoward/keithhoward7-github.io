@@ -21,22 +21,29 @@ var init = function (window) {
         
         // TODO 1 : Declare and initialize our variables //
           var circle;
-          var circles = [argument1, argument2, argument3, argument4,argument5];
+          var circles = [];
 
         // TODO 2 : Create a function that draws a circle  //
-        var drawCircle = function(){
+        var drawCircle = function() {
         circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
         physikz.addRandomVelocity(circle, canvas);
         view.addChild(circle);
         circles.push(circle);
-    }
-            
+}
+        
 
         // TODO 3 : Call the drawCircle function 5 times //
-                drawCircle(argument1, argument2, argument3, argument4, argument5);
-
+            drawCircle();
+            drawCircle();
+            drawCircle();
+            drawCircle();
+            drawCircle();
+                  
+ 
         // TODO 7 : Create a Loop to call drawCircle 100 times
-
+            for (var counter = 0; counter < 100; counter++) {
+             drawCircle()
+}
     
         view.addChild(fps);
         app.addUpdateable(fps);
@@ -45,38 +52,51 @@ var init = function (window) {
             // TODO 5 : YOUR CODE STARTS HERE //////////////////////
             
             // if the circle has gone out the right side of the screen then place it off-screen left
-            if ( circle.x > canvas.width + circle.radius ) {
-                circle.x = 0 - circle.radius;
+            if ( circle.x > canvas.width) {
+                circle.x = 0;
             } 
             // TODO 5a) if the circle has gone out of the left side of the screen then place it off-screen right
-            else if ( / * Fill me in! * / ) {
-                
+            else if ( circle.x < 0  ) {
+                circle.x = canvas.width;
             } 
 
             // TODO 5b) if the circle has gone out of the top side of the screen then place it off-screen bottom
-            if ( / * Fill me in! * / ) {
-                
+            if ( circle.y > canvas.height ) {
+                circle.y = 0;
             }
             // TODO 5c) if the circle has gone out of the bottom side of the screen then place it off-screen top 
-            else if ( / * Fill me in! * / ) {
-            
+            else if ( circle.y < 0 ) {
+                   circle.y = canvas.height;
             }
             // YOUR TODO 5 CODE ENDS HERE //////////////////////////
-        }
+        };
     
         var update = function() {
             // TODO 4 : Update the circle's position //
-                         physikz.updatePosition(circles[0]);
-            // code to call the function on the other 4 circles...
-        }
+               physikz.updatePosition(circles[0]);
+               physikz.updatePosition(circles[1]);
+               physikz.updatePosition(circles[2]);
+               physikz.updatePosition(circles[3]);
+               physikz.updatePosition(circles[4]);
             
             // TODO 6 : Call checkCircleBounds on your circles.
-           
+               runner.checkCircleBounds(circles[0]);
+               runner.checkCircleBounds(circles[1]);
+               runner.checkCircleBounds(circles[2]);
+               runner.checkCircleBounds(circles[3]);
+               runner.checkCircleBounds(circles[4]);
 
             // TODO 8 : Iterate over the array
            
+               // for loop version
+           for (var i = 0; i < circles.length; i++) {
+                circle = circles[i];
+                console.log(circles);
+                physikz.updatePosition(circle);
+                runner.checkCircleBounds(circle);
+}
 
-        }
+        };
         
         ////////////////////////////////////////////////////////////////////
         // NO CODE BELOW HERE                                             //

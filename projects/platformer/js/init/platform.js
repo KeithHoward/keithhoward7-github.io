@@ -41,7 +41,8 @@
         platform.create(200, 900);
         platform.create(400, 200);
         platform.create(150, 300);
-        
+        platform.create(0, 100, 0.5);
+        platform.create(0, 455, 0.5);
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
     };
